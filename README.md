@@ -14,20 +14,24 @@ Cobb is very much a work in progress, and is pretty messy, but I'm getting it up
 
 Cobb's attempts are more successful on weakly ordered hardware like arm. If you don't have an arm machine and can't get one, then try and make sure your code is broken on x86 as well, otherwize Cobb won't work.
 
+See the examples directory for, well, some examples.
+
 ## Comparison to LOOM
+
+Cobb was written due to some frustrations around using loom in practice, and while the API differs a great deal, they have almost the exact same use-case.
 
 ### Upsides compared to loom:
 
-1. Cobb is small, simple, and easily understood. (In theory anyway, the code is a bit of a mess at the moment, but it's only a few hundred lines so isn't *that* bad).
+1. Cobb is small, simple, and easily understood... In theory anyway, the code is a bit of a mess at the moment, but it's only a few hundred lines so isn't *that* bad.
 2. Cobb is much lower overhead than loom. Cobb can run more complex tests that utilize far more threads.
 3. Much more accurate model of hardware reordering, as we literally just let your hardware do the reordering.
 4. In loom atomic ops come with implicit SeqCst barriers, which means that a lot of bugs can't be found.
 
 ### Downsides compared to loom:
-1. Has way more dependencies on your runtime environment. E.g best on weakly ordered machines with fewer threads than cores, or
+1. Has way more dependencies on your runtime environment. E.g best on weakly ordered machines with fewer threads than cores, or with external race detectors (such as thread sanitizer, or miri's new shininess).
 2. If run without a race detector, it's up to you to detect that something actually went wrong (mostly).
 3. Loom contains things like replacements for lazy_static that are reinitialized before runs.
-4. Loom's API is much nicer, currently
+4. Loom's API is much nicer, currently.
 
 ### Sidesides compared to loom:
 - On loom you have a lot more control on when/where you spawn threads. Cobb just takes your funciton, and calls it a bunch from different threads.
