@@ -1,14 +1,16 @@
 [package]
 name = "cobb"
-version = "0.1.0"
+version = "0.0.1"
 authors = ["Thom Chiovoloni <chiovolonit@gmail.com>"]
 edition = "2018"
 license = "Apache-2.0 OR MIT OR Zlib"
-
-# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
-
-[dependencies]
-
+description = "WIP library to help track down bugs in concurrent algorithms"
+readme = "README.md"
+documentation = "https://docs.rs/cobb"
+homepage = "https://github.com/thomcc/cobb"
+repository = "https://github.com/thomcc/cobb"
+keywords = ["atomic", "lock-free"]
+categories = ["concurrency", "data-structures"]
 
 [profile.dev]
 debug = true
