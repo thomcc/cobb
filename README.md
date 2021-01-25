@@ -4,9 +4,9 @@
 
 Cobb is Rust tool that helps you track down bugs in concurrent algorithms.
 
-Cobb is similar to [`loom`](https://crates.io/crates/loom), and was even inspired by it. It hopes to work well in a few cases where `LOOM` is currently lacking (too many threads, too slow, unsupported operations, ...), but in general is a much more naive approach. You generally have to either run cobb in conjunction with thread sanitizer, miri's race detector, or on weakly ordered hardware to catch many kinds of issues.
+Cobb is similar to [`loom`](https://crates.io/crates/loom), and was even inspired by it. It hopes to work well in a few cases where `loom` is currently lacking (too many threads, too slow, unsupported operations, ...), but in general is a much more naive approach. You generally have to either run cobb in conjunction with thread sanitizer, miri's race detector, or on weakly ordered hardware to catch many kinds of issues.
 
-That said, if your code is sufficiently buggy, it will catch issues even on x86.
+That said, if your code is sufficiently buggy, it will catch issues even on x86 without race detectors.
 
 Cobb is very much a work in progress, and is pretty messy, but I'm getting it up now so I can link to it elsewhere.
 
